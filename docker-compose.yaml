@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - "8080:80"
+      - "8443:443"
+    volumes:
+      - .:/usr/src/app
+      - ./data:/app/data   # ✅ Mount thư mục data chứa aoe.xlsx vào container
